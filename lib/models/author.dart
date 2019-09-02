@@ -12,5 +12,8 @@ class Author{
     this.avatar = jsonObject['avatar'];
   }
 
+  String getAuthorFormattedName(){
+    return '${this.first_name} ${this.last_name}';
+  }
 
 }

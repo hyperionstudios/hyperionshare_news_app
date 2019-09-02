@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:hyperionshare_news_app/models/author.dart';
 import 'package:hyperionshare_news_app/models/category.dart';
 import 'package:hyperionshare_news_app/models/post_comment.dart';
@@ -40,5 +41,22 @@ class Post {
     }
   }
 
+  String getFeaturedImage(){
+    if( this.images.length > 0 ){
+      return this.images[0].image_url;
+    }
+    return null;
+  }
+
+  String getAuthorFormattedName(){
+    return this.author.getAuthorFormattedName();
+  }
+
+  ImageProvider getPostImage() {
+    if (this.getFeaturedImage() == null) {
+      return ExactAssetImage('assets/images/placeholder.png');
+    }
+    return NetworkImage(this.getFeaturedImage());
+  }
 
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hyperionshare_news_app/api/categories_api.dart';
 import 'package:hyperionshare_news_app/models/post.dart';
+import 'package:hyperionshare_news_app/shared_ui/list_posts.dart';
 
 class CategoryPosts extends StatefulWidget {
 
@@ -73,17 +74,7 @@ class _CategoryPostsState extends State<CategoryPosts> {
       child: ListView.builder(
         itemCount: posts.length,
         itemBuilder: ( BuildContext context , int position ){
-          return InkWell(
-            child: Card(
-              child: Container(
-                padding: EdgeInsets.all(16),
-                child: Text( posts[position].post_title ),
-              ),
-            ),
-            onTap: (){
-              // TODO : Goto the single news page
-            },
-          );
+          return PostCard( posts[position] );
         },
       ),
     );
